@@ -5,7 +5,7 @@ import java.util.List;
 import com.inti.entities.Phase;
 import com.inti.entities.Phase;
 
-public interface IPhaseService{
+public interface IPhaseService {
 
 	
 	List<Phase> findAll();
