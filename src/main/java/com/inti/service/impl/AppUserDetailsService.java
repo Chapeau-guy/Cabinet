@@ -1,7 +1,7 @@
 package com.inti.service.impl;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,8 +24,8 @@ public class AppUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Utilisateur utilisateur=utilisateurService.findOneByUsername(username);
-		Set<Role> roles=utilisateur.getRoles();
-		Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+		List<Role> roles=utilisateur.getRoles();
+		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for (Role  role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getLibelle()));
 			System.out.println("Le role est: " + role.getLibelle());

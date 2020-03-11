@@ -1,10 +1,10 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -16,6 +16,7 @@ import javax.persistence.JoinTable;
 import javax.persistence.JoinColumn;
 import javax.persistence.Lob;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -31,9 +32,10 @@ public class Utilisateur implements Serializable {
 	@Column(unique = true)
 	private String username;
 	private String password;
-	private String sexe;
+	private String email;
 	private String commentaire;
-	
+	@OneToMany(mappedBy="utilisateur")
+	private List<Tache> taches = new ArrayList<>();
 	private boolean enabled = true;
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
@@ -43,27 +45,24 @@ public class Utilisateur implements Serializable {
 	@JoinTable(name = "profil", joinColumns = {
 			@JoinColumn(name = "id_utilisateur", referencedColumnName = "idUtilisateur") }, inverseJoinColumns = {
 					@JoinColumn(name = "id_role", table = "role", referencedColumnName = "idRole") })
-	private Set<Role> roles = new HashSet<>();
+	private List<Role> roles = new ArrayList<>();
 
 	public Utilisateur() {
 	}
 
-
-
-	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password, String sexe,
-			String commentaire, Date dateNaissance, Set<Role> roles) {
+	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password, String email,
+			String commentaire, Date dateNaissance, List<Role> roles, List<Tache> taches) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
 		this.username = username;
 		this.password = password;
-		this.sexe = sexe;
+		this.email = email;
 		this.commentaire = commentaire;
 		this.dateNaissance = dateNaissance;
 		this.roles = roles;
+		this.taches = taches;
 	}
-
-
 
 	public Long getIdUtilisateur() {
 		return idUtilisateur;
@@ -129,38 +128,37 @@ public class Utilisateur implements Serializable {
 		this.image = image;
 	}
 
-	public Set<Role> getRoles() {
+	public List<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(Set<Role> roles) {
+	public void setRoles(List<Role> roles) {
 		this.roles = roles;
 	}
-	
 
-	public String getSexe() {
-		return sexe;
+	public List<Tache> getTaches() {
+		return taches;
 	}
 
-
-
-	public void setSexe(String sexe) {
-		this.sexe = sexe;
+	public void setTaches(List<Tache> taches) {
+		this.taches = taches;
 	}
 
+	public String getEmail() {
+		return email;
+	}
 
+	public void setEmail(String email) {
+		this.email = email;
+	}
 
 	public String getCommentaire() {
 		return commentaire;
 	}
 
-
-
 	public void setCommentaire(String commentaire) {
 		this.commentaire = commentaire;
 	}
-
-
 
 	@Override
 	public String toString() {

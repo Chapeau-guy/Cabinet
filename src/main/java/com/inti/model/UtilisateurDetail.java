@@ -1,7 +1,7 @@
 package com.inti.model;
 
 import java.util.Collection;
-import java.util.Set;
+import java.util.List;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,7 +12,7 @@ public class UtilisateurDetail implements UserDetails {
 
 	private static final long serialVersionUID = 1L;
 	private Utilisateur utilisateur;
-	Set<GrantedAuthority> authorities = null;
+	List<GrantedAuthority> authorities = null;
 
 	public Utilisateur getUtilisateur() {
 		return utilisateur;
@@ -22,13 +22,12 @@ public class UtilisateurDetail implements UserDetails {
 		this.utilisateur = utilisateur;
 	}
 
-	public void setAuthorities(Set<GrantedAuthority> authorities) {
+	public void setAuthorities(List<GrantedAuthority> authorities) {
 		this.authorities = authorities;
 	}
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-	
 		return authorities;
 	}
 
