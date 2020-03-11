@@ -2,6 +2,8 @@ package com.inti.entities;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,6 +11,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 @Entity
 public class Tache implements Serializable{
@@ -24,6 +27,8 @@ public class Tache implements Serializable{
 	private Tribunal tribunal; 
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Utilisateur utilisateur; 
+	@OneToMany(mappedBy="tache")
+	private List<Phase> phases = new ArrayList<>();
 	
 	
 	public Tache() {
@@ -62,6 +67,12 @@ public class Tache implements Serializable{
 	}
 	public Long getIdTache() {
 		return idTache;
+	}
+	@Override
+	public String toString() {
+		return "Tache [titre=" + titre + ", description=" + description + ", dateCreation=" + dateCreation
+				+ ", statutAudience=" + statutAudience + ", tribunal=" + tribunal + ", utilisateur=" + utilisateur
+				+ ", phases=" + phases + "]";
 	}
 	
 	
