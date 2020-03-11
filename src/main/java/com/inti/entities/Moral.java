@@ -1,5 +1,8 @@
 package com.inti.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Moral extends Tiers{
 	private String MaisonSocial;
 	

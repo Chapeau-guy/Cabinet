@@ -1,5 +1,8 @@
 package com.inti.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class Physique extends Tiers{
 	private String nom;
 	private String prenom;
