@@ -1,4 +1,4 @@
-package com.inti.restConroller;
+/*package com.inti.restConroller;
 
 import java.security.Principal;
 import java.util.List;
@@ -65,4 +65,4 @@ public class RefController {
 			return utilisateurService.findOneByUsername(principal.getName());
 		}
 	}
-}
+}*/
