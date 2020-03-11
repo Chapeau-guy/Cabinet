@@ -9,8 +9,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inti.entities.Role;
-import com.inti.entities.Utilisateur;
 import com.inti.entities.Utilisateur;
 import com.inti.service.interfaces.IUtilisateurService;
 
@@ -46,6 +44,7 @@ public class UtilisateurController {
 		currentUtilisateur.setUsername(user.getUsername());
 		currentUtilisateur.setPassword(user.getPassword());
 		currentUtilisateur.setDateNaissance(user.getDateNaissance());
+		currentUtilisateur.setEmail(user.getEmail());
 		currentUtilisateur.setImage(user.getImage());
 		currentUtilisateur.setRoles(user.getRoles());
 		return userService.save(currentUtilisateur);
