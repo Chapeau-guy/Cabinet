@@ -10,43 +10,44 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.inti.entities.Phase;
+import com.inti.entities.Affaire;
 import com.inti.entities.Utilisateur;
-import com.inti.service.interfaces.IPhaseService;
+import com.inti.service.interfaces.IAffaireService;
 import com.inti.service.interfaces.IUtilisateurService;
 
 
 @RestController
-public class PhaseController {
-	@Autowired				// on fais appelle au bon service . NB : Phase c'était Utilisateur
-	IPhaseService userService;
+public class AffaireController {
+	@Autowired				// on fais appelle au bon service . NB : Affaire c'était Utilisateur
+	IAffaireService userService;
 
 	@RequestMapping(value = "users", method = RequestMethod.GET)
-	public List<Phase> findAll() {
+	public List<Affaire> findAll() {
 		return userService.findAll();
 	}
 
-	@RequestMapping(value = "users/{idPhase}", method = RequestMethod.GET)
-	public Phase findOne(@PathVariable("idPhase") Long id) {
+	@RequestMapping(value = "users/{idAffaire}", method = RequestMethod.GET)
+	public Affaire findOne(@PathVariable("idAffaire") Long id) {
 		return userService.findOne(id);
 	}
 
 	@RequestMapping(value = "users", method = RequestMethod.POST)
-	public Phase savePhase(@RequestBody Phase user) {
+	public Affaire saveAffaire(@RequestBody Affaire user) {
 		return userService.save(user);
 	}
 
-	@RequestMapping(value = "users/{idPhase}", method = RequestMethod.DELETE)
-	public void deletePhase(@PathVariable("idPhase") Long id) {
+	@RequestMapping(value = "users/{idAffaire}", method = RequestMethod.DELETE)
+	public void deleteAffaire(@PathVariable("idAffaire") Long id) {
 		userService.delete(id);
 	}
-	@RequestMapping(value = "users/{idPhase}", method = RequestMethod.PUT)
-	public Phase updatePhase(@PathVariable("idPhase") Long id, @RequestBody Phase user) {
-		Phase currentPhase= userService.findOne(id);
-		currentPhase.setNomPhase(user.getNomPhase());
-		currentPhase.setDateDebut(user.getDateDebut());
-		currentPhase.setDateFin(user.getDateFin());
-		return userService.save(currentPhase);
+	@RequestMapping(value = "users/{idAffaire}", method = RequestMethod.PUT)
+	public Affaire updateAffaire(@PathVariable("idAffaire") Long id, @RequestBody Affaire user) {
+		Affaire currentAffaire= userService.findOne(id);
+		currentAffaire.setReference(user.getReference());
+		currentAffaire.setTitre(user.getTitre());
+		currentAffaire.setDescription(user.getDescription());
+		currentAffaire.setStatut(user.getStatut());
+		return userService.save(currentAffaire);
 	}
 	
 	// partie pour le login

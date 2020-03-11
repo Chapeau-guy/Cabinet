@@ -34,9 +34,6 @@ public class PhaseService implements IPhaseService {
 		phaseRepository.delete(id);
 	}
 
-	@Override
-	public Phase findOneByUsername(String username) {
-		return phaseRepository.findOneByUsername(username);
-	}
+
 
 }
