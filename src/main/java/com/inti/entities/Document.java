@@ -3,9 +3,11 @@ package com.inti.entities;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,18 +21,15 @@ public class Document implements Serializable {
 	private Date dateCreation;
 	private String nom;
 	private String description;
-	
+	@ManyToOne(fetch=FetchType.EAGER)
+	private Affaire affaire ;
 	
 	
 	public Document() {
 	
 	}
-
-
-
 	public Document(Date dateCreation, String nom, String description) {
-		
-		
+			
 		this.dateCreation = dateCreation;
 		this.nom = nom;
 		this.description = description;
