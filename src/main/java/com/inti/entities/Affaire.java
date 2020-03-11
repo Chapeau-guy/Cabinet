@@ -1,12 +1,16 @@
 package com.inti.entities;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 public class Affaire implements Serializable {
 
@@ -20,6 +24,9 @@ public class Affaire implements Serializable {
 	private int statut ;
 	@ManyToMany(fetch = FetchType.EAGER)
 	private
+	@OneToMany
+	List<Document> documents = new ArrayList<>();
+	
 	
 	
 
