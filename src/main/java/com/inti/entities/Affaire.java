@@ -31,5 +31,66 @@ public class Affaire implements Serializable {
 	
 	
 	
+	public Affaire(String reference, String titre, String description, int statut, List<Document> documents) {
+		super();
+		this.reference = reference;
+		this.titre = titre;
+		this.description = description;
+		this.statut = statut;
+		this.documents = documents;
+	}
+	
+	public Affaire() {
+		
+	}
+
+	public String getReference() {
+		return reference;
+	}
+
+	public void setReference(String reference) {
+		this.reference = reference;
+	}
+
+	public String getTitre() {
+		return titre;
+	}
+
+	public void setTitre(String titre) {
+		this.titre = titre;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public int getStatut() {
+		return statut;
+	}
+
+	public void setStatut(int statut) {
+		this.statut = statut;
+	}
+
+	public List<Document> getDocuments() {
+		return documents;
+	}
+
+	public void setDocuments(List<Document> documents) {
+		this.documents = documents;
+	}
+
+	@Override
+	public String toString() {
+		return "Affaire [reference=" + reference + ", titre=" + titre + ", description=" + description + ", statut="
+				+ statut + ", documents=" + documents + "]";
+	}
+	
+	
+	
 
 }

@@ -2,12 +2,8 @@ package com.inti.entities;
 
 import java.io.Serializable;
 import java.util.Date;
-
-<<<<<<< HEAD
-import javax.persistence.FetchType;
-=======
 import javax.persistence.Entity;
->>>>>>> e8ab128e731444ad8a36e7992b8fdc8b29390585
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
