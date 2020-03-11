@@ -3,11 +3,13 @@ package com.inti.service.impl;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.inti.entities.Tribunal;
 import com.inti.repositories.TribunalRepository;
 import com.inti.service.interfaces.ITribunalService;
 
+@Service
 public class TribunalService implements ITribunalService{
 	@Autowired
 	TribunalRepository tribunalRepository;

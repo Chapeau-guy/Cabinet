@@ -38,11 +38,9 @@ public class Document implements Serializable {
 	}
 
 
-
 	public Date getDateCreation() {
 		return dateCreation;
 	}
-
 
 
 	public void setDateCreation(Date dateCreation) {
@@ -50,11 +48,9 @@ public class Document implements Serializable {
 	}
 
 
-
 	public String getNom() {
 		return nom;
 	}
-
 
 
 	public void setNom(String nom) {
@@ -62,11 +58,9 @@ public class Document implements Serializable {
 	}
 
 
-
 	public String getDescription() {
 		return description;
 	}
-
 
 
 	public void setDescription(String description) {
@@ -74,12 +68,9 @@ public class Document implements Serializable {
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "Document [dateCreation=" + dateCreation + ", nom=" + nom + ", description=" + description + "]";
 	}
-	
-	
 
 }
