@@ -9,6 +9,7 @@ import com.inti.entities.Utilisateur;
 import com.inti.repositories.UtilisateurRepository;
 import com.inti.service.interfaces.IUtilisateurService;
 
+
 @Service
 public class UtilisateurService implements IUtilisateurService {
 	@Autowired
@@ -38,5 +39,7 @@ public class UtilisateurService implements IUtilisateurService {
 	public Utilisateur findOneByUsername(String username) {
 		return utilisateurRepository.findOneByUsername(username);
 	}
+
+	
 
 }
