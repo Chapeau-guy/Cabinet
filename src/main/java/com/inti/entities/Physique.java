@@ -12,7 +12,7 @@ public class Physique extends Tiers {
 	private static final long serialVersionUID = 1L;
 	private String nom;
 	private String prenom;
-	private Long NumIdentité;
+	private Long numIdentité;
 
 	public Physique() {
 		super();
@@ -22,7 +22,7 @@ public class Physique extends Tiers {
 		super(adresse, tel);
 		this.nom = nom;
 		this.prenom = prenom;
-		NumIdentité = numIdentité;
+		this.numIdentité = numIdentité;
 	}
 
 	public String getNom() {
@@ -42,16 +42,16 @@ public class Physique extends Tiers {
 	}
 
 	public Long getNumIdentité() {
-		return NumIdentité;
+		return numIdentité;
 	}
 
 	public void setNumIdentité(Long numIdentité) {
-		NumIdentité = numIdentité;
+		this.numIdentité = numIdentité;
 	}
 
 	@Override
 	public String toString() {
-		return "Physique [nom=" + nom + ", prenom=" + prenom + ", NumIdentité=" + NumIdentité + "]";
+		return "Physique [nom=" + nom + ", prenom=" + prenom + ", NumIdentité=" + numIdentité + "]";
 	}
 
 }

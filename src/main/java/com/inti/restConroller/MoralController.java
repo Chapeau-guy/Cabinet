@@ -19,34 +19,34 @@ import com.inti.service.interfaces.IUtilisateurService;
 @RestController
 public class MoralController {
 	@Autowired				// on fais appelle au bon service . NB : Moral c'était Utilisateur
-	IMoralService userService;
+	IMoralService moralService;
 
 	@RequestMapping(value = "moral", method = RequestMethod.GET)
 	public List<Moral> findAll() {
-		return userService.findAll();
+		return moralService.findAll();
 	}
 
 	@RequestMapping(value = "moral/{idMoral}", method = RequestMethod.GET)
 	public Moral findOne(@PathVariable("idMoral") Long id) {
-		return userService.findOne(id);
+		return moralService.findOne(id);
 	}
 
 	@RequestMapping(value = "moral", method = RequestMethod.POST)
 	public Moral saveMoral(@RequestBody Moral user) {
-		return userService.save(user);
+		return moralService.save(user);
 	}
 
 	@RequestMapping(value = "moral/{idMoral}", method = RequestMethod.DELETE)
 	public void deleteMoral(@PathVariable("idMoral") Long id) {
-		userService.delete(id);
+		moralService.delete(id);
 	}
 	@RequestMapping(value = "moral/{idMoral}", method = RequestMethod.PUT)
-	public Moral updateMoral(@PathVariable("idMoral") Long id, @RequestBody Moral user) {
-		Moral currentMoral= userService.findOne(id);
-		currentMoral.setAdresse(user.getAdresse());
-		currentMoral.setTel(user.getTel());
-		currentMoral.setRaisonSociale(user.getRaisonSociale()); 
-		return userService.save(currentMoral);
+	public Moral updateMoral(@PathVariable("idMoral") Long id, @RequestBody Moral moral) {
+		Moral currentMoral= moralService.findOne(id);
+		currentMoral.setAdresse(moral.getAdresse());
+		currentMoral.setTel(moral.getTel());
+		currentMoral.setRaisonSociale(moral.getRaisonSociale()); 
+		return moralService.save(currentMoral);
 	}
 	
 	// partie pour le login
