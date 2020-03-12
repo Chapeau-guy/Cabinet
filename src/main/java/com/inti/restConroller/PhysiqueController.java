@@ -48,16 +48,4 @@ public class PhysiqueController {
 		// comment on gere l'heritage dans ce cas ci. 
 		return userService.save(currentPhysique);
 	}
-	
-	// partie pour le login
-	@RestController
-	@RequestMapping(value = "/login")
-	public class LoginConroller {
-		@Autowired
-		IUtilisateurService utilisateurService;
-		
-		public Utilisateur login(Principal principal) {
-			return utilisateurService.findOneByUsername(principal.getName());
-		}
-	}
 }

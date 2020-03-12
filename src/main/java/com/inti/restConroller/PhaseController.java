@@ -48,16 +48,4 @@ public class PhaseController {
 		currentPhase.setDateFin(user.getDateFin());
 		return userService.save(currentPhase);
 	}
-	
-	// partie pour le login
-	@RestController
-	@RequestMapping(value = "/login")
-	public class LoginConroller {
-		@Autowired
-		IUtilisateurService utilisateurService;
-		
-		public Utilisateur login(Principal principal) {
-			return utilisateurService.findOneByUsername(principal.getName());
-		}
-	}
 }

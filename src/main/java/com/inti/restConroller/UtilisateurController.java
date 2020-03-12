@@ -45,7 +45,6 @@ public class UtilisateurController {
 		currentUtilisateur.setPassword(user.getPassword());
 		currentUtilisateur.setDateNaissance(user.getDateNaissance());
 		currentUtilisateur.setEmail(user.getEmail());
-		currentUtilisateur.setImage(user.getImage());
 		currentUtilisateur.setRoles(user.getRoles());
 		return userService.save(currentUtilisateur);
 	}
