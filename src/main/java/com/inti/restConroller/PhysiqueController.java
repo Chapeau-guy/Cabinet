@@ -21,26 +21,26 @@ public class PhysiqueController {
 	@Autowired				// on fais appelle au bon service . NB : Physique c'était Utilisateur
 	IPhysiqueService userService;
 
-	@RequestMapping(value = "Tiers", method = RequestMethod.GET)
+	@RequestMapping(value = "tiers", method = RequestMethod.GET)
 	public List<Physique> findAll() {
 		return userService.findAll();
 	}
 
-	@RequestMapping(value = "Tiers/{idPhysique}", method = RequestMethod.GET)
+	@RequestMapping(value = "tiers/{idPhysique}", method = RequestMethod.GET)
 	public Physique findOne(@PathVariable("idPhysique") Long id) {
 		return userService.findOne(id);
 	}
 
-	@RequestMapping(value = "Tiers", method = RequestMethod.POST)
+	@RequestMapping(value = "tiers", method = RequestMethod.POST)
 	public Physique savePhysique(@RequestBody Physique user) {
 		return userService.save(user);
 	}
 
-	@RequestMapping(value = "Tiers/{idPhysique}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "tiers/{idPhysique}", method = RequestMethod.DELETE)
 	public void deletePhysique(@PathVariable("idPhysique") Long id) {
 		userService.delete(id);
 	}
-	@RequestMapping(value = "Tiers/{idPhysique}", method = RequestMethod.PUT)
+	@RequestMapping(value = "tiers/{idPhysique}", method = RequestMethod.PUT)
 	public Physique updatePhysique(@PathVariable("idPhysique") Long id, @RequestBody Physique user) {
 		Physique currentPhysique= userService.findOne(id);
 		currentPhysique.setAdresse(user.getAdresse());

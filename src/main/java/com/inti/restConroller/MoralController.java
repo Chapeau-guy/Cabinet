@@ -21,26 +21,26 @@ public class MoralController {
 	@Autowired				// on fais appelle au bon service . NB : Moral c'était Utilisateur
 	IMoralService userService;
 
-	@RequestMapping(value = "Moral", method = RequestMethod.GET)
+	@RequestMapping(value = "moral", method = RequestMethod.GET)
 	public List<Moral> findAll() {
 		return userService.findAll();
 	}
 
-	@RequestMapping(value = "Moral/{idMoral}", method = RequestMethod.GET)
+	@RequestMapping(value = "moral/{idMoral}", method = RequestMethod.GET)
 	public Moral findOne(@PathVariable("idMoral") Long id) {
 		return userService.findOne(id);
 	}
 
-	@RequestMapping(value = "Moral", method = RequestMethod.POST)
+	@RequestMapping(value = "moral", method = RequestMethod.POST)
 	public Moral saveMoral(@RequestBody Moral user) {
 		return userService.save(user);
 	}
 
-	@RequestMapping(value = "Moral/{idMoral}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "moral/{idMoral}", method = RequestMethod.DELETE)
 	public void deleteMoral(@PathVariable("idMoral") Long id) {
 		userService.delete(id);
 	}
-	@RequestMapping(value = "Moral/{idMoral}", method = RequestMethod.PUT)
+	@RequestMapping(value = "moral/{idMoral}", method = RequestMethod.PUT)
 	public Moral updateMoral(@PathVariable("idMoral") Long id, @RequestBody Moral user) {
 		Moral currentMoral= userService.findOne(id);
 		currentMoral.setAdresse(user.getAdresse());

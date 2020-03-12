@@ -29,7 +29,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailService);
 	}
 	public void configure(WebSecurity web)throws Exception {
-		web.ignoring().antMatchers("/users/**","/roles/**");
+		web.ignoring().antMatchers("/users/**","/roles/**","/affaire/**","/documents/**","/moral/**","/phase/**","/tiers/**","/taches/**","/tribunals/**");
 	}
 	protected void configure(HttpSecurity http) throws Exception {
 		http
