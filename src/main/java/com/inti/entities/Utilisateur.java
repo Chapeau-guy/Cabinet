@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -35,7 +37,7 @@ public class Utilisateur implements Serializable {
 	private String email;
 	private String commentaire;
 	@OneToMany(mappedBy="utilisateur")
-	private List<Tache> taches = new ArrayList<>();
+	private Set<Tache> taches = new HashSet<>();
 	private boolean enabled = true;
 	@Temporal(TemporalType.DATE)
 	private Date dateNaissance;
@@ -45,13 +47,13 @@ public class Utilisateur implements Serializable {
 	@JoinTable(name = "profil", joinColumns = {
 			@JoinColumn(name = "idutilisateur", referencedColumnName = "idUtilisateur") }, inverseJoinColumns = {
 					@JoinColumn(name = "idrole", table = "role", referencedColumnName = "idRole") })
-	private List<Role> roles = new ArrayList<>();
+	private Set<Role> roles = new HashSet<>();
 
 	public Utilisateur() {
 	}
 
 	public Utilisateur(String nomUtilisateur, String prenomUtilisateur, String username, String password, String email,
-			String commentaire, Date dateNaissance, List<Role> roles, List<Tache> taches) {
+			String commentaire, Date dateNaissance, Set<Role> roles, Set<Tache> taches) {
 		super();
 		this.nomUtilisateur = nomUtilisateur;
 		this.prenomUtilisateur = prenomUtilisateur;
@@ -128,19 +130,19 @@ public class Utilisateur implements Serializable {
 		this.image = image;
 	}
 
-	public List<Role> getRoles() {
+	public Set<Role> getRoles() {
 		return roles;
 	}
 
-	public void setRoles(List<Role> roles) {
+	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
 
-	public List<Tache> getTaches() {
+	public Set<Tache> getTaches() {
 		return taches;
 	}
 
-	public void setTaches(List<Tache> taches) {
+	public void setTaches(Set<Tache> taches) {
 		this.taches = taches;
 	}
 

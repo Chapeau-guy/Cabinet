@@ -2,6 +2,7 @@ package com.inti.service.impl;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -24,7 +25,7 @@ public class AppUserDetailsService implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		Utilisateur utilisateur=utilisateurService.findOneByUsername(username);
-		List<Role> roles=utilisateur.getRoles();
+		Set<Role> roles=utilisateur.getRoles();
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 		for (Role  role : roles) {
 			authorities.add(new SimpleGrantedAuthority(role.getLibelle()));
