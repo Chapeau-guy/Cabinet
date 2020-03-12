@@ -8,5 +8,4 @@ import com.inti.entities.Utilisateur;
 
 @Repository
 public interface RoleRepository extends JpaRepository<Role, Long> {
-	Utilisateur findOneById(Long Id);
 }
