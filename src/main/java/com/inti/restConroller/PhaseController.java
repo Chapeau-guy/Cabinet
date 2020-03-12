@@ -21,26 +21,26 @@ public class PhaseController {
 	@Autowired				// on fais appelle au bon service . NB : Phase c'était Utilisateur
 	IPhaseService userService;
 
-	@RequestMapping(value = "users", method = RequestMethod.GET)
+	@RequestMapping(value = "phase", method = RequestMethod.GET)
 	public List<Phase> findAll() {
 		return userService.findAll();
 	}
 
-	@RequestMapping(value = "users/{idPhase}", method = RequestMethod.GET)
+	@RequestMapping(value = "phase/{idPhase}", method = RequestMethod.GET)
 	public Phase findOne(@PathVariable("idPhase") Long id) {
 		return userService.findOne(id);
 	}
 
-	@RequestMapping(value = "users", method = RequestMethod.POST)
+	@RequestMapping(value = "phase", method = RequestMethod.POST)
 	public Phase savePhase(@RequestBody Phase user) {
 		return userService.save(user);
 	}
 
-	@RequestMapping(value = "users/{idPhase}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "phase/{idPhase}", method = RequestMethod.DELETE)
 	public void deletePhase(@PathVariable("idPhase") Long id) {
 		userService.delete(id);
 	}
-	@RequestMapping(value = "users/{idPhase}", method = RequestMethod.PUT)
+	@RequestMapping(value = "phase/{idPhase}", method = RequestMethod.PUT)
 	public Phase updatePhase(@PathVariable("idPhase") Long id, @RequestBody Phase user) {
 		Phase currentPhase= userService.findOne(id);
 		currentPhase.setNomPhase(user.getNomPhase());

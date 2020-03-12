@@ -2,12 +2,20 @@ package com.inti.entities;
 
 import java.io.Serializable;
 
+import javax.persistence.DiscriminatorColumn;
+import javax.persistence.DiscriminatorType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
+import javax.persistence.ManyToOne;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
 public class Tiers implements Serializable {
 
 	private static final long serialVersionUID = 1L;
@@ -16,7 +24,8 @@ public class Tiers implements Serializable {
 	private Long idTiers;
 	private String adresse;
 	private Long tel;
-	
+	@ManyToOne(fetch=FetchType.EAGER)
+	private Utilisateur utilisateur;
 	
 	public Tiers(String adresse, Long tel) {
 		

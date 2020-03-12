@@ -43,8 +43,8 @@ public class Utilisateur implements Serializable {
 	private byte[] image;
 	@ManyToMany(fetch = FetchType.EAGER)
 	@JoinTable(name = "profil", joinColumns = {
-			@JoinColumn(name = "id_utilisateur", referencedColumnName = "idUtilisateur") }, inverseJoinColumns = {
-					@JoinColumn(name = "id_role", table = "role", referencedColumnName = "idRole") })
+			@JoinColumn(name = "idutilisateur", referencedColumnName = "idUtilisateur") }, inverseJoinColumns = {
+					@JoinColumn(name = "idrole", table = "role", referencedColumnName = "idRole") })
 	private List<Role> roles = new ArrayList<>();
 
 	public Utilisateur() {

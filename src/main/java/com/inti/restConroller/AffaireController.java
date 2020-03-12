@@ -21,26 +21,26 @@ public class AffaireController {
 	@Autowired				// on fais appelle au bon service . NB : Affaire c'était Utilisateur
 	IAffaireService userService;
 
-	@RequestMapping(value = "users", method = RequestMethod.GET)
+	@RequestMapping(value = "affaire", method = RequestMethod.GET)
 	public List<Affaire> findAll() {
 		return userService.findAll();
 	}
 
-	@RequestMapping(value = "users/{idAffaire}", method = RequestMethod.GET)
+	@RequestMapping(value = "affaire/{idAffaire}", method = RequestMethod.GET)
 	public Affaire findOne(@PathVariable("idAffaire") Long id) {
 		return userService.findOne(id);
 	}
 
-	@RequestMapping(value = "users", method = RequestMethod.POST)
+	@RequestMapping(value = "affaire", method = RequestMethod.POST)
 	public Affaire saveAffaire(@RequestBody Affaire user) {
 		return userService.save(user);
 	}
 
-	@RequestMapping(value = "users/{idAffaire}", method = RequestMethod.DELETE)
+	@RequestMapping(value = "affaire/{idAffaire}", method = RequestMethod.DELETE)
 	public void deleteAffaire(@PathVariable("idAffaire") Long id) {
 		userService.delete(id);
 	}
-	@RequestMapping(value = "users/{idAffaire}", method = RequestMethod.PUT)
+	@RequestMapping(value = "affaire/{idAffaire}", method = RequestMethod.PUT)
 	public Affaire updateAffaire(@PathVariable("idAffaire") Long id, @RequestBody Affaire user) {
 		Affaire currentAffaire= userService.findOne(id);
 		currentAffaire.setReference(user.getReference());

@@ -24,53 +24,44 @@ public class Document implements Serializable {
 	private String nom;
 	private String description;
 	@ManyToOne(fetch=FetchType.EAGER)
-	private Affaire affaire ;
-	
-	
+	private Affaire affaire;
 	public Document() {
-	
 	}
-	public Document(Date dateCreation, String nom, String description) {
-			
+	public Document(Date dateCreation, String nom, String description, Affaire affaire) {
 		this.dateCreation = dateCreation;
 		this.nom = nom;
 		this.description = description;
+		this.affaire = affaire;
 	}
-
-
+	public Long getIdDocument() {
+		return idDocument;
+	}
+	public void setIdDocument(Long idDocument) {
+		this.idDocument = idDocument;
+	}
 	public Date getDateCreation() {
 		return dateCreation;
 	}
-
-
 	public void setDateCreation(Date dateCreation) {
 		this.dateCreation = dateCreation;
 	}
-
-
 	public String getNom() {
 		return nom;
 	}
-
-
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
-
-
 	public String getDescription() {
 		return description;
 	}
-
-
 	public void setDescription(String description) {
 		this.description = description;
 	}
-
-
-	@Override
-	public String toString() {
-		return "Document [dateCreation=" + dateCreation + ", nom=" + nom + ", description=" + description + "]";
+	public Affaire getAffaire() {
+		return affaire;
+	}
+	public void setAffaire(Affaire affaire) {
+		this.affaire = affaire;
 	}
 
 }

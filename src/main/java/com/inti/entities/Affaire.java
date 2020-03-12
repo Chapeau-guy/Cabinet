@@ -1,16 +1,14 @@
 package com.inti.entities;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-
 import javax.persistence.OneToMany;
 
 @Entity
@@ -23,25 +21,28 @@ public class Affaire implements Serializable {
 	private String reference;
 	private String titre;
 	private String description;
-	private int statut ;
-	@ManyToMany(fetch = FetchType.EAGER)
-	private
-	@OneToMany
-	List<Document> documents = new ArrayList<>();
-	
-	
-	
-	public Affaire(String reference, String titre, String description, int statut, List<Document> documents) {
-		super();
+	private int statut;
+	@OneToMany(mappedBy = "affaire", fetch = FetchType.EAGER)
+	private Set<Document> documents = new HashSet<>();
+	@OneToMany(mappedBy = "affaire", fetch = FetchType.EAGER)
+	private Set<Tache> taches = new HashSet<>();
+
+	public Affaire() {
+	}
+
+	public Affaire(String reference, String titre, String description, int statut) {
 		this.reference = reference;
 		this.titre = titre;
 		this.description = description;
 		this.statut = statut;
-		this.documents = documents;
 	}
-	
-	public Affaire() {
-		
+
+	public Long getIdAffaire() {
+		return idAffaire;
+	}
+
+	public void setIdAffaire(Long idAffaire) {
+		this.idAffaire = idAffaire;
 	}
 
 	public String getReference() {
@@ -76,21 +77,20 @@ public class Affaire implements Serializable {
 		this.statut = statut;
 	}
 
-	public List<Document> getDocuments() {
+	public Set<Document> getDocuments() {
 		return documents;
 	}
 
-	public void setDocuments(List<Document> documents) {
+	public void setDocuments(Set<Document> documents) {
 		this.documents = documents;
 	}
 
-	@Override
-	public String toString() {
-		return "Affaire [reference=" + reference + ", titre=" + titre + ", description=" + description + ", statut="
-				+ statut + ", documents=" + documents + "]";
+	public Set<Tache> getTaches() {
+		return taches;
 	}
-	
-	
-	
+
+	public void setTaches(Set<Tache> taches) {
+		this.taches = taches;
+	}
 
 }

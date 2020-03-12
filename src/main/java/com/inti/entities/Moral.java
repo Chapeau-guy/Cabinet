@@ -1,10 +1,16 @@
 package com.inti.entities;
 
+import javax.persistence.DiscriminatorValue;
 import javax.persistence.Entity;
 
 @Entity
+@DiscriminatorValue("moral")
 public class Moral extends Tiers{
-	private String MaisonSocial;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private String RaisonSociale;
 	
 	public Moral() {
 		super();
@@ -12,17 +18,17 @@ public class Moral extends Tiers{
 	
 	public Moral(String adresse, Long tel, String maisonSocial) {
 		super(adresse, tel);
-		MaisonSocial = maisonSocial;
+		RaisonSociale = maisonSocial;
 	}
 
 
 
-	public String getMaisonSocial() {
-		return MaisonSocial;
+	public String getRaisonSociale() {
+		return RaisonSociale;
 	}
 
-	public void setMaisonSocial(String maisonSocial) {
-		MaisonSocial = maisonSocial;
+	public void setRaisonSociale(String maisonSocial) {
+		RaisonSociale = maisonSocial;
 	}
 	
 
