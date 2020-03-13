@@ -20,18 +20,13 @@ public class Phase implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long idPhase;
 	private String nomPhase;
-	@Temporal(TemporalType.DATE)
-	private Date dateDebut;
-	@Temporal(TemporalType.DATE)
-	private Date dateFin;
 	@ManyToOne(fetch=FetchType.EAGER)
 	private Tache tache;
 	
-	public Phase(String nomPhase, Date dateDebut, Date dateFin, Tache tache) {
+	public Phase(String nomPhase, Tache tache) {
 		super();
 		this.nomPhase = nomPhase;
-		this.dateDebut = dateDebut;
-		this.dateFin = dateFin;
+
 		this.tache = tache;
 	}
 	public Phase() {
@@ -42,18 +37,6 @@ public class Phase implements Serializable {
 	}
 	public void setNomPhase(String nomPhase) {
 		this.nomPhase = nomPhase;
-	}
-	public Date getDateDebut() {
-		return dateDebut;
-	}
-	public void setDateDebut(Date dateDebut) {
-		this.dateDebut = dateDebut;
-	}
-	public Date getDateFin() {
-		return dateFin;
-	}
-	public void setDateFin(Date dateFin) {
-		this.dateFin = dateFin;
 	}
 	public Tache getTache() {
 		return tache;
@@ -66,7 +49,7 @@ public class Phase implements Serializable {
 	}
 	@Override
 	public String toString() {
-		return "Phase [nomPhase=" + nomPhase + ", dateDebut=" + dateDebut + ", dateFin=" + dateFin + ", tache=" + tache
+		return "Phase [nomPhase=" + nomPhase + ", tache=" + tache
 				+ "]";
 	}
 

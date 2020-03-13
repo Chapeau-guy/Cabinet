@@ -12,6 +12,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 @Entity
 public class Tache implements Serializable {
@@ -21,7 +23,10 @@ public class Tache implements Serializable {
 	private Long idTache;
 	private String titre;
 	private String description;
-	private Date dateCreation;
+	@Temporal(TemporalType.DATE)
+	private Date dateDebut;
+	@Temporal(TemporalType.DATE)
+	private Date dateFin;
 	private boolean statutAudience;
 	@ManyToOne(fetch = FetchType.EAGER)
 	private Tribunal tribunal;
@@ -35,16 +40,18 @@ public class Tache implements Serializable {
 	public Tache() {
 	}
 
-	public Tache(String titre, String description, Date dateCreation, boolean statutAudience, Tribunal tribunal,
-			Utilisateur utilisateur, Affaire affaire) {
+
+
+	public Tache(String titre, String description, Date dateDebut, Date dateFin, boolean statutAudience) {
+		super();
 		this.titre = titre;
 		this.description = description;
-		this.dateCreation = dateCreation;
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
 		this.statutAudience = statutAudience;
-		this.tribunal = tribunal;
-		this.utilisateur = utilisateur;
-		this.affaire = affaire;
 	}
+
+
 
 	public Long getIdTache() {
 		return idTache;
@@ -68,14 +75,6 @@ public class Tache implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public Date getDateCreation() {
-		return dateCreation;
-	}
-
-	public void setDateCreation(Date dateCreation) {
-		this.dateCreation = dateCreation;
 	}
 
 	public boolean isStatutAudience() {
@@ -117,5 +116,22 @@ public class Tache implements Serializable {
 	public void setAffaire(Affaire affaire) {
 		this.affaire = affaire;
 	}
+
+	public Date getDateDebut() {
+		return dateDebut;
+	}
+
+	public void setDateDebut(Date dateDebut) {
+		this.dateDebut = dateDebut;
+	}
+
+	public Date getDateFin() {
+		return dateFin;
+	}
+
+	public void setDateFin(Date dateFin) {
+		this.dateFin = dateFin;
+	}
+	
 
 }
